@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modal Example with Smooth Animation</title>
+        <style>
+            /* Styles for the modal */
+            /* Modal Content/Box */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 5% auto; /* 15% from the top and centered */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%; /* Could be more or less, depending on screen size */
+                opacity: 0;
+                transition: opacity 0.1s ease-in-out; /* Smooth fade-in/out effect */
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* Fade-in effect when modal is displayed */
+            .modal-content.fade-in {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        p
+        <h2>Modal Example with Smooth Animation</h2>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="openModalBtn">Nhấn vào đây để mở bảng</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Đây là nội dung của bảng.</p>
+                <table border="1">
+                    <tr>
+                        <th>Tiêu đề 1</th>
+                        <th>Tiêu đề 2</th>
+                        <th>Tiêu đề 3</th>
+                    </tr>
+                    <tr>
+                        <td>Dữ liệu 1</td>
+                        <td>Dữ liệu 2</td>
+                        <td>Dữ liệu 3</td>
+                    </tr>
+                    <tr>
+                        <td>Dữ liệu 4</td>
+                        <td>Dữ liệu 5</td>
+                        <td>Dữ liệu 6</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("openModalBtn");
+
+            // // Get the <span> element that closes the modal
+            // var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function () {
+                modal.style.display = "block";
+                setTimeout(function () {
+                    modal
+                        .querySelector(".modal-content")
+                        .classList.add("fade-in");
+                }, 10); // Delay added to ensure CSS transition is applied
+            };
+
+            // Khi người dùng bấm vào bất cứ đâu nó sẽ đongs lại
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal
+                        .querySelector(".modal-content")
+                        .classList.remove("fade-in");
+                    setTimeout(function () {
+                        modal.style.display = "none";
+                    }, 300); // Match CSS transition duration
+                }
+            };
+        </script>
+    </body>
+</html>
