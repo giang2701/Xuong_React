@@ -13,7 +13,7 @@ const About = () => {
             </div>
             <figure>
                 <img
-                    src="../../public/image/About-1.jpg"
+                    src="../../public/image/d9b35efcb2e9b92794dcd64cafb07f66.jpg"
                     alt=""
                     className="mw-100"
                 />

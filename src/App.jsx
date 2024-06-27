@@ -13,9 +13,11 @@ import Notfound from "./pages/Notfound";
 import ProductDetail from "./pages/ProductDetail";
 import FormActivate from "./pages/admin/FormActivate";
 import NotFoudAdmin from "./pages/admin/NotFoudAdmin";
+import EditAvata from "./pages/EditAvata";
 
 function App() {
     const [products, setProducts] = useState([]);
+    const [user, setuser] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -67,6 +69,16 @@ function App() {
             }
         })();
     };
+    // Cập nhật info user
+    const HandleAvata = async (data) => {
+        // console.log(data);
+        const res = await instance.put(`/users/${data.id}`, data);
+        const NewInfo = await instance.get("/users");
+        console.log(NewInfo.data); // Kiểm tra dữ liệu mới
+        setuser(NewInfo);
+        alert("Cập Thật Thành Công!!");
+        window.location.reload();
+    };
     return (
         <>
             <Header />
@@ -106,6 +118,10 @@ function App() {
                     </Route>
 
                     {/* path empty */}
+                    <Route
+                        path="/edit-avata/:id"
+                        element={<EditAvata EditAvata={HandleAvata} />}
+                    />
                     <Route path="/register" element={<AuthForm isRegister />} />
                     <Route path="/login" element={<AuthForm />} />
                     <Route path="/notAdmin" element={<NotFoudAdmin />} />

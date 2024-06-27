@@ -96,14 +96,6 @@
       "id": 6
     },
     {
-      "email": "vgiang2701@gmail.com",
-      "password": "$2a$10$bxHYWUF1YITFMv9YlUdtg.mPKSACuP7nrCcO57sJCovokE4YcJpZa",
-      "username": "nvg271",
-      "confirmPass": "123456",
-      "role": 1,
-      "id": 7
-    },
-    {
       "email": "Baolong@gmail.com",
       "password": "$2a$10$I/Qi0SP1ui.d3WONPh1mjeo1EA/WL5B8r5eWbDBFB6OeygDF55pYa",
       "username": "baolong",
@@ -111,18 +103,39 @@
       "id": 8
     },
     {
-      "email": "LuongThiNhu@gmail.com",
-      "password": "$2a$10$vO65NXkY416uzK3QiF96auCg3TgvOLz4hxSCba8CdAP7U/muQjhQm",
-      "username": "Luong Nhu",
-      "confirmPass": "123456",
-      "id": 9
-    },
-    {
       "email": "truong@gmail.com",
       "password": "$2a$10$gOzif3plT5c4u.w/Bd3MgeqPGucxVTGmmB8LR0.jeYo6ynsLolY6a",
       "username": "truong",
       "confirmPass": "123456",
       "id": 10
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "$2a$10$6fEp4dHf7ogKerCDMSTwduf.L29KEKriUmo6zXz3QPtKmzaFeEqYq",
+      "username": "1234567",
+      "confirmPass": "123456",
+      "id": 11,
+      "img": "",
+      "address": ""
+    },
+    {
+      "email": "LuongThiNhu@gmail.com",
+      "password": "$2a$10$oexygb9zuyyuxq4Z2Wawhe.675bqaKr0Lp6etpib2SS2qObKw4NTO",
+      "username": "Luong Nhu",
+      "confirmPass": "123456",
+      "id": 12,
+      "img": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/e093e9cfc9027d6a142358d24d2ee350-65a11ac2af785880-17061562929701875684912.jpg",
+      "address": "Ha Noi"
+    },
+    {
+      "email": "vgiang2701@gmail.com",
+      "password": "$2a$10$ezmFTjBYJlPNB3qmfmKIWeedvhGx65h5mWQNmKnODA4i6GWU2qwp.",
+      "username": "nvg271",
+      "confirmPass": "123456",
+      "id": 13,
+      "img": "https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/351358480_6787921397902756_5829083029709962390_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHPVnV_4z1PyHxVvXwsETG1iEFbL_GRSn2IQVsv8ZFKfXaZWgP_Pp2f-TVyN5asuIKWRUhmgzuAwzhwJ8m3Lc_H&_nc_ohc=5oEGuz4UsjAQ7kNvgGvk8F2&_nc_ht=scontent.fhan2-5.fna&oh=00_AYC6A7Y9C5JbcQQVF8bUIzrvYg8Qg5XwxEJVSN3NPsgCdA&oe=6682F556",
+      "role": 1,
+      "address": "Thái Bình"
     }
   ]
 }

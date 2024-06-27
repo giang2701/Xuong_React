@@ -5,7 +5,7 @@ const NotFoudAdmin = () => {
     return (
         <div>
             <main className="container-sm my-5 boxNotSum">
-                <div className="w-50 mx-auto text-center NotAdmin py-5">
+                <div className=" mx-auto text-center NotAdmin py-5">
                     <p className="text-base font-semibold text-indigo-600 fw-bold text-danger">
                         404
                     </p>

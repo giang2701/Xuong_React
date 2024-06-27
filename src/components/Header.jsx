@@ -5,7 +5,9 @@ export default function Header() {
     const username = JSON.parse(localStorage.getItem("user"))?.user?.username;
     const email = JSON.parse(localStorage.getItem("user"))?.user?.email;
     const role = JSON.parse(localStorage.getItem("user"))?.user?.role;
-    // console.log(role);
+    const img = JSON.parse(localStorage.getItem("user"))?.user?.img;
+    const id = JSON.parse(localStorage.getItem("user"))?.user?.id;
+    // console.log(id);
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
         setModalOpen(true);
@@ -125,25 +127,51 @@ export default function Header() {
                                         </span>
                                         <span>{email}</span>
                                         <br />
-                                        <i className="fa-regular fa-circle-user "></i>
+                                        {/* avata */}
+                                        {img ? (
+                                            <>
+                                                {" "}
+                                                <img
+                                                    src={img}
+                                                    alt=""
+                                                    className="AvataUser"
+                                                />
+                                                <Link to={`/edit-avata/${id}`}>
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </Link>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <img
+                                                    src="../../public/image/avatar.jpg"
+                                                    alt=""
+                                                    className="AvataUser"
+                                                />
+                                                <Link to={`/edit-avata/${id}`}>
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </Link>
+                                            </>
+                                        )}
+
+                                        {/* <i className="fa-regular fa-circle-user "></i> */}
                                         <p>{username}</p>
                                         {role ? (
                                             <>
-                                                <div className="d-flex my-3 justify-content-center">
+                                                <div className="my-3">
+                                                    <Link
+                                                        to="/admin"
+                                                        className="nav-link mb-3"
+                                                    >
+                                                        <span className="admin">
+                                                            Admin
+                                                        </span>
+                                                    </Link>
                                                     <button
                                                         className="btn btn-danger me-3"
                                                         onClick={handleLogout}
                                                     >
                                                         <span>Đăng Xuất</span>
                                                     </button>
-                                                    <Link
-                                                        to="/admin"
-                                                        className="btn btn-primary "
-                                                    >
-                                                        <span className="admin">
-                                                            Admin
-                                                        </span>
-                                                    </Link>
                                                 </div>
                                             </>
                                         ) : (

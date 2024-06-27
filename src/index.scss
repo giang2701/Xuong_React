@@ -89,9 +89,26 @@ html {
                 text-decoration: none;
                 cursor: pointer;
             }
+            // Avata
+            .AvataUser {
+                margin: 20px 10px 0px 40px;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .fa-pen {
+                font-size: 18px;
+                position: absolute;
+                top: 60px;
+                right: 100px;
+                // background-color: #00fbff;
+                padding: 10px;
+            }
         }
         .admin {
-            font-size: 20px;
+            font-size: 18px;
+            text-decoration: underline;
         }
     }
 }
@@ -185,6 +202,34 @@ button.btn-hero {
     margin-left: 70px;
     // color: rgba(255, 255, 255, 1);
 }
+// ====================================Edit Avata===========================================
+.box-infoUser {
+    height: 500px;
+    padding-top: 20px;
+    .AvataEdit {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin: auto;
+        display: block;
+        border-radius: 50%;
+    }
+    form {
+        position: relative;
+        font-size: 20px;
+        input {
+            font-size: 18px;
+            height: 30px;
+            border: 1px solid rgb(216, 212, 212);
+        }
+        button {
+            font-size: 20px;
+            position: absolute;
+            right: 0px;
+        }
+    }
+}
+
 // ==================================== Home main ===========================================
 .ListPro h1 {
     font-size: 3rem;
@@ -631,9 +676,11 @@ button.btn-hero {
 .boxNotSum {
     // background-color: #00fbff;
     padding-bottom: 50px;
+    // width: 300px;
     .NotAdmin {
-        font-size: 30px;
+        font-size: 25px;
         // height: ;
+        max-width: 500px;
         padding: 10px 30px;
         border: 10px double rgb(18, 171, 174);
         border-end-end-radius: 20px;
