@@ -14,7 +14,7 @@ const Dashboard = ({ data, remove }) => {
     console.log(data);
     return (
         <div className="container-sm">
-            <h1 className="h1 text-center my-5">Hello, admin</h1>
+            {/* <h1 className="h1 text-center my-5">Hello, admin</h1> */}
             <div className="add">
                 <Link to="/admin/product-form">
                     <i class="fa-solid fa-plus"></i>

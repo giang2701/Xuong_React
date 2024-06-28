@@ -150,7 +150,10 @@ export default function Header() {
 
                                             {/* <i className="fa-regular fa-circle-user "></i> */}
                                             <p>{username}</p>
-                                            {role ? (
+                                            {role == 1 ||
+                                            role == "1" ||
+                                            role == 2 ||
+                                            role == "2" ? (
                                                 <>
                                                     <div className="my-3">
                                                         <Link

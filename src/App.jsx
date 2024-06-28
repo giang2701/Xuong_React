@@ -18,6 +18,8 @@ import LayoutClient from "./layouts/LayoutClient";
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import Not404 from "./pages/admin/Not404";
+import UserAdmin from "./pages/admin/user/UserAdmin";
+import EditUser from "./pages/admin/user/EditUser";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -29,6 +31,17 @@ function App() {
             try {
                 const { data } = await instance.get("/products");
                 setProducts(data);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, []);
+    // user
+    useEffect(() => {
+        (async () => {
+            try {
+                const { data } = await instance.get("/users");
+                setuser(data);
             } catch (error) {
                 console.log(error);
             }
@@ -49,7 +62,7 @@ function App() {
                     setProducts([...products, res.data]);
                 }
                 if (confirm("Successfully, redirect to admin page!")) {
-                    navigate("/admin");
+                    navigate("/admin/dashboard");
                 }
             } catch (error) {
                 console.log(error);
@@ -72,6 +85,20 @@ function App() {
                 console.log(error);
             }
         })();
+    };
+    // User Admin
+    const handleUser = async (id) => {
+        // console.log(id)
+        if (confirm("Are you sure?")) {
+            instance.delete(`/users/${id}`);
+            const NewUser = user.filter((item) => item.id != id && item);
+            setuser(NewUser);
+        }
+    };
+    const handleEditUser = async (data) => {
+        await instance.patch(`/users/${data.id}`, data);
+        const NewUser = await instance.get("/users");
+        setProducts(NewUser);
     };
     // Cập nhật info user
     const HandleAvata = async (data) => {
@@ -130,6 +157,19 @@ function App() {
                             element={
                                 <ProductForm onProduct={handleSubmitForm} />
                             }
+                        />
+                        <Route
+                            path="/admin/user"
+                            element={
+                                <UserAdmin
+                                    data={user}
+                                    removeUser={handleUser}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/admin/user/:id"
+                            element={<EditUser onSubmit={handleEditUser} />}
                         />
                         <Route path="/admin/not404" element={<Not404 />} />
                     </Route>

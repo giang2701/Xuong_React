@@ -13,19 +13,24 @@ const AuthForm = ({ isRegister }) => {
         formState: { errors },
     } = useForm({
         resolver: zodResolver(isRegister ? registerSchema : loginSchema),
+        defaultValues: {
+            role: isRegister ? "3" : undefined, // Đặt giá trị mặc định cho role nếu là đăng ký
+        },
     });
+
     const onSubmit = (data) => {
         (async () => {
             try {
                 if (isRegister) {
-                    // console.log(data);
-                    await instance.post(`/register`, data);
+                    await instance.post(`/register`, {
+                        ...data,
+                        role: data.role || "3",
+                    }); // Đảm bảo role có giá trị
                     if (confirm("Successfully, redirect login page?")) {
                         nav("/login");
                     }
                 } else {
                     const result = await instance.post(`/login`, data);
-                    // console.log(data);
                     localStorage.setItem("user", JSON.stringify(result.data));
                     if (confirm("Successfully, redirect home page?")) {
                         nav("/");
@@ -36,6 +41,7 @@ const AuthForm = ({ isRegister }) => {
             }
         })();
     };
+
     return (
         <div className="container-sm my-5 contaiForm">
             <form
@@ -94,22 +100,35 @@ const AuthForm = ({ isRegister }) => {
                     )}
                 </div>
                 {isRegister && (
-                    <div className="mb-3">
-                        <label htmlFor="confirmPass" className="form-label">
-                            Confirm password
-                        </label>
-                        <input
-                            type="password"
-                            className="form-control"
-                            id="confirmPass"
-                            {...register("confirmPass", { required: true })}
-                        />
-                        {errors.confirmPass?.message && (
-                            <p className="text-danger">
-                                {errors.confirmPass?.message}
-                            </p>
-                        )}
-                    </div>
+                    <>
+                        <div className="mb-3">
+                            <label htmlFor="confirmPass" className="form-label">
+                                Confirm password
+                            </label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="confirmPass"
+                                {...register("confirmPass", { required: true })}
+                            />
+                            {errors.confirmPass?.message && (
+                                <p className="text-danger">
+                                    {errors.confirmPass?.message}
+                                </p>
+                            )}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="" className="form-label rolelabel">
+                                Role
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control role"
+                                {...register("role")}
+                                defaultValue="3"
+                            />
+                        </div>
+                    </>
                 )}
 
                 <div className="mb-3 ">

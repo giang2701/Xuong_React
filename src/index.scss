@@ -451,15 +451,6 @@ button.btn-hero {
     }
 }
 
-// .heart-icon.clicked {
-//     background-color: rgb(255, 0, 0);
-// }
-
-// .heart-icon i {
-//     color: red;
-//     font-size: 18px;
-// }
-
 /* ===============================Form Acc =======================================*/
 .formAcc {
     position: relative;
@@ -478,6 +469,12 @@ button.btn-hero {
         height: 40px;
         z-index: 3; /* Ensure input fields are above the formAcc container */
         position: relative; /* Ensure z-index works correctly */
+    }
+    label.rolelabel {
+        display: none;
+    }
+    input.role {
+        display: none;
     }
     label {
         z-index: 3;
@@ -645,6 +642,55 @@ button.btn-hero {
     }
 }
 /* ===============================  Admin =======================================*/
+// Home
+.HomeAdmin {
+    position: relative;
+    p {
+        font-size: 150px;
+        font-family: "Oswald", sans-serif;
+        font-weight: 800;
+        background-color: #ffffff;
+        color: #4158d0; /* Màu chữ chính */
+        background-image: linear-gradient(
+            43deg,
+            #4158d0 0%,
+            #c850c0 46%,
+            #ffcc70 100%
+        );
+        // background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-top: 300px;
+        margin-right: 300px;
+        position: relative;
+    }
+    p::before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 10px;
+        background-color: rgb(252, 125, 6);
+        border-radius: 20px;
+        top: 30px;
+    }
+    p::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 80px;
+        background-color: rgb(252, 125, 6);
+        border-radius: 20px;
+        left: -10px;
+        bottom: 90px;
+    }
+    img {
+        position: absolute;
+        width: 500px;
+        right: 50px;
+        top: 30px;
+    }
+}
+// ========
 .sum_admin {
     header {
         border-bottom: 2px solid black;
@@ -694,13 +740,18 @@ button.btn-hero {
                     height: 40px;
                     border-radius: 50%;
                 }
-                p {
-                    margin-right: 60px;
-                    margin-left: 5px;
-                    margin-top: 20px;
-                    font-size: 18px;
-                    font-weight: 600;
+                .username {
+                    width: 100px;
+                    overflow: hidden;
+                    p {
+                        margin-right: 60px;
+                        margin-left: 5px;
+                        margin-top: 20px;
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
                 }
+
                 .btn {
                     width: 50px;
                     max-width: 100%;
@@ -795,7 +846,23 @@ button.btn-hero {
         font-size: 15px;
     }
 }
-/* ===============================Form Products =======================================*/
+/* ===============================Admin user=======================================*/
+.containerUser {
+    padding-top: 20px;
+    table {
+        font-size: 20px;
+        .btn {
+            font-size: 15px;
+        }
+    }
+    .note {
+        margin-left: 50px;
+        li {
+            font-size: 20px;
+        }
+    }
+}
+/* ===============================Form Products-User admin =======================================*/
 .formProduct {
     font-size: 20px;
     h1 {
@@ -807,6 +874,12 @@ button.btn-hero {
     }
     button {
         font-size: 20px;
+    }
+    .note {
+        margin-left: 30px;
+        li {
+            font-size: 20px;
+        }
     }
 }
 

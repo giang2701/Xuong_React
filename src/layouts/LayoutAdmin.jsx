@@ -6,59 +6,6 @@ const LayoutAdmin = () => {
     const username = JSON.parse(localStorage.getItem("user"))?.user.username;
     // console.log(user);
     return (
-        // <div>
-        //     {/* <header>
-        //         <ul className="nav navbar">
-        //             <li className="nav-item">
-        //                 <Link to="/admin" className="nav-link">
-        //                     Dashboard
-        //                 </Link>
-        //             </li>
-        //             <li>
-        //                 <Link to="report" className="nav-link">
-        //                     Thống kê
-        //                 </Link>
-        //             </li>
-        //             <li>
-        //                 <Link to="users" className="nav-link">
-        //                     Users
-        //                 </Link>
-        //             </li>
-        //         </ul>
-        //     </header> */}
-        //     <main className="container">
-        //         <div className="row">
-        //             <div className="col-3">
-        //                 <div className="sidebar">
-        //                     {/* <h1>Hello, Admin</h1> */}
-        //                     <ul>
-        //                         <li>
-        //                             <Link>Link 1</Link>
-        //                         </li>
-        //                         <li>
-        //                             <Link>Link 1</Link>
-        //                         </li>
-        //                         <li>
-        //                             <Link>Link 1</Link>
-        //                         </li>
-        //                         <li>
-        //                             <Link>Link 1</Link>
-        //                         </li>
-        //                         <li>
-        //                             <Link>Link 1</Link>
-        //                         </li>
-        //                         <li>
-        //                             <Link>Link 1</Link>
-        //                         </li>
-        //                     </ul>
-        //                 </div>
-        //             </div>
-        //             <div className="col-9">
-        //                 <Outlet />
-        //             </div>
-        //         </div>
-        //     </main>
-        // </div>
         <div className="container-fliud sum_admin">
             <header className="container-fliud d-flex justify-content-between">
                 <div className="row">
@@ -78,7 +25,9 @@ const LayoutAdmin = () => {
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link">User</Link>
+                                    <Link to="/admin/user" className="nav-link">
+                                        User
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link">Settings</Link>
@@ -94,7 +43,9 @@ const LayoutAdmin = () => {
                     </div>
                     <div className="col-6">
                         <img src={img} alt="" />
-                        <p>{username}</p>
+                        <div className="username">
+                            <p>{username}</p>
+                        </div>
 
                         <Link to="/" className="btn btn-danger">
                             <i class="fa-solid fa-right-from-bracket"></i>
@@ -124,7 +75,7 @@ const LayoutAdmin = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link">
+                                <Link to="/admin/user" className="nav-link">
                                     <i class="fa-solid fa-user me-3"></i>User
                                 </Link>
                             </li>

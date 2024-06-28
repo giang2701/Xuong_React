@@ -105,7 +105,8 @@ const ProductForm = ({ onProduct }) => {
                     <label htmlFor="description" className="form-label">
                         Description
                     </label>
-                    <input
+                    <textarea
+                        rows={10}
                         type="text"
                         className="form-control"
                         id="description"
