@@ -90,10 +90,12 @@
     },
     {
       "email": "giangblackrose2k4@gmail.com",
-      "password": "$2a$10$lxtClDXLuA0AJ9fpD1r8Z.LQm9crsqn68w6EOKq2oK6mUnSYC3BjS",
+      "password": "$2a$10$Zyhy5S7R6aLA0naNi3EMauaFvogH4p5xCtDx/c2BqerIc7S2XNn7G",
       "username": "Giang",
       "confirmPass": "123456",
-      "id": 6
+      "id": 6,
+      "img": "https://i.pinimg.com/236x/7f/2d/22/7f2d2275b77d3a8b74c2b165bccfce9c.jpg",
+      "address": ""
     },
     {
       "email": "Baolong@gmail.com",
@@ -129,7 +131,7 @@
     },
     {
       "email": "vgiang2701@gmail.com",
-      "password": "$2a$10$ezmFTjBYJlPNB3qmfmKIWeedvhGx65h5mWQNmKnODA4i6GWU2qwp.",
+      "password": "$2a$10$v0XjYF/8ctmkl1Wc7vida.PkBIPYG5Dz50r7F9u8FSzSTnzr7EnA.",
       "username": "nvg271",
       "confirmPass": "123456",
       "id": 13,

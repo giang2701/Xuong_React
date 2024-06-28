@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Router, Routes, useNavigate } from "react-router-dom";
 import "./App.scss";
 import instance, { getProducts } from "./axios";
 import AuthForm from "./components/AuthForm";
@@ -14,6 +14,10 @@ import ProductDetail from "./pages/ProductDetail";
 import FormActivate from "./pages/admin/FormActivate";
 import NotFoudAdmin from "./pages/admin/NotFoudAdmin";
 import EditAvata from "./pages/EditAvata";
+import LayoutClient from "./layouts/LayoutClient";
+import LayoutAdmin from "./layouts/LayoutAdmin";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import Not404 from "./pages/admin/Not404";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -81,21 +85,33 @@ function App() {
     };
     return (
         <>
-            <Header />
-            <main>
-                <Routes>
-                    {/* path for client */}
+            {/* <Header /> */}
+            {/* <main> */}
+            <Routes>
+                {/* path for client */}
+                <Route path="/" element={<LayoutClient />}>
                     <Route index element={<Home data={products} />} />
                     <Route path="/home" element={<Navigate to="/" />} />
                     <Route
                         path="/product-detail/:id"
                         element={<ProductDetail />}
                     />
+                    {/* path empty */}
+                    <Route
+                        path="/edit-avata/:id"
+                        element={<EditAvata EditAvata={HandleAvata} />}
+                    />
+                    <Route path="/register" element={<AuthForm isRegister />} />
+                    <Route path="/login" element={<AuthForm />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/admin" element={<FormActivate />}>
-                        {/* path for admin */}
+                </Route>
+
+                {/* path for admin */}
+                <Route path="/admin" element={<FormActivate />}>
+                    <Route path="/admin" element={<LayoutAdmin />}>
+                        <Route index element={<HomeAdmin />} />
                         <Route
-                            path="/admin"
+                            path="/admin/dashboard"
                             element={
                                 <Dashboard
                                     data={products}
@@ -115,21 +131,16 @@ function App() {
                                 <ProductForm onProduct={handleSubmitForm} />
                             }
                         />
+                        <Route path="/admin/not404" element={<Not404 />} />
                     </Route>
+                </Route>
 
-                    {/* path empty */}
-                    <Route
-                        path="/edit-avata/:id"
-                        element={<EditAvata EditAvata={HandleAvata} />}
-                    />
-                    <Route path="/register" element={<AuthForm isRegister />} />
-                    <Route path="/login" element={<AuthForm />} />
-                    <Route path="/notAdmin" element={<NotFoudAdmin />} />
-                    <Route path="*" element={<Notfound />} />
-                </Routes>
-            </main>
+                <Route path="/notAdmin" element={<NotFoudAdmin />} />
+                <Route path="*" element={<Notfound />} />
+            </Routes>
+            {/* </main> */}
 
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }

@@ -99,133 +99,133 @@ export default function Header() {
                             </Link>
                         </li>
                     </ul>
-                    {/* <!--seach --> */}
-                    <div className="box-Search me-4 d-flex align-items-center justify-content-center">
-                        <form action="" className="w-75">
-                            <input
-                                type="text"
-                                className="form-control In-Search"
-                            />
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </form>
-                    </div>
                     {/* Acc */}
-                    {username ? (
-                        <>
-                            {/* Account avatar and modal */}
-                            <div className="Avata" onClick={openModal}>
-                                <i className="fa-regular fa-circle-user text-white"></i>
-                            </div>
-                            {modalOpen && (
-                                <div className="box-infoAcc" id="myModal">
-                                    <div className="modal_content">
-                                        <span
-                                            className="close"
-                                            onClick={closeModal}
-                                        >
-                                            &times;
-                                        </span>
-                                        <span>{email}</span>
-                                        <br />
-                                        {/* avata */}
-                                        {img ? (
-                                            <>
-                                                {" "}
-                                                <img
-                                                    src={img}
-                                                    alt=""
-                                                    className="AvataUser"
-                                                />
-                                                <Link to={`/edit-avata/${id}`}>
-                                                    <i class="fa-solid fa-pen"></i>
-                                                </Link>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <img
-                                                    src="../../public/image/avatar.jpg"
-                                                    alt=""
-                                                    className="AvataUser"
-                                                />
-                                                <Link to={`/edit-avata/${id}`}>
-                                                    <i class="fa-solid fa-pen"></i>
-                                                </Link>
-                                            </>
-                                        )}
-
-                                        {/* <i className="fa-regular fa-circle-user "></i> */}
-                                        <p>{username}</p>
-                                        {role ? (
-                                            <>
-                                                <div className="my-3">
+                    <div className="Box-AccStream">
+                        {username ? (
+                            <>
+                                {/* Account avatar and modal */}
+                                <div className="Avata" onClick={openModal}>
+                                    <i className="fa-regular fa-circle-user text-white"></i>
+                                </div>
+                                {modalOpen && (
+                                    <div className="box-infoAcc" id="myModal">
+                                        <div className="modal_content">
+                                            <span
+                                                className="close"
+                                                onClick={closeModal}
+                                            >
+                                                &times;
+                                            </span>
+                                            <span>{email}</span>
+                                            <br />
+                                            {/* avata */}
+                                            {img ? (
+                                                <>
+                                                    {" "}
+                                                    <img
+                                                        src={img}
+                                                        alt=""
+                                                        className="AvataUser"
+                                                    />
                                                     <Link
-                                                        to="/admin"
-                                                        className="nav-link mb-3"
+                                                        to={`/edit-avata/${id}`}
                                                     >
-                                                        <span className="admin">
-                                                            Admin
-                                                        </span>
+                                                        <i class="fa-solid fa-pen"></i>
                                                     </Link>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <img
+                                                        src="../../public/image/avatar.jpg"
+                                                        alt=""
+                                                        className="AvataUser"
+                                                    />
+                                                    <Link
+                                                        to={`/edit-avata/${id}`}
+                                                    >
+                                                        <i class="fa-solid fa-pen"></i>
+                                                    </Link>
+                                                </>
+                                            )}
+
+                                            {/* <i className="fa-regular fa-circle-user "></i> */}
+                                            <p>{username}</p>
+                                            {role ? (
+                                                <>
+                                                    <div className="my-3">
+                                                        <Link
+                                                            to="/admin"
+                                                            className="nav-link mb-3"
+                                                        >
+                                                            <span className="admin">
+                                                                Admin
+                                                            </span>
+                                                        </Link>
+                                                        <button
+                                                            className="btn btn-danger me-3"
+                                                            onClick={
+                                                                handleLogout
+                                                            }
+                                                        >
+                                                            <span>
+                                                                Đăng Xuất
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </>
+                                            ) : (
+                                                <>
                                                     <button
-                                                        className="btn btn-danger me-3"
+                                                        className="btn btn-danger my-3"
                                                         onClick={handleLogout}
                                                     >
-                                                        <span>Đăng Xuất</span>
+                                                        <span>Đăng Xuất </span>
                                                     </button>
-                                                </div>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <button
-                                                    className="btn btn-danger my-3"
-                                                    onClick={handleLogout}
-                                                >
-                                                    <span>Đăng Xuất </span>
-                                                </button>
-                                            </>
-                                        )}
+                                                </>
+                                            )}
+                                        </div>
                                     </div>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                <div className="box-Action">
+                                    <button
+                                        className="btn btn-success ms-5 me-2"
+                                        style={{
+                                            backgroundColor: "#ff3cac",
+                                            backgroundImage:
+                                                "linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%)",
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        <Link
+                                            to="/register"
+                                            style={{ color: "white" }}
+                                            className="nav-link"
+                                        >
+                                            Register
+                                        </Link>
+                                    </button>
+                                    <button
+                                        className="btn btn-primary"
+                                        style={{
+                                            minWidth: "100px",
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        <Link
+                                            to="/login"
+                                            style={{ color: "white" }}
+                                            className="nav-link"
+                                        >
+                                            login
+                                        </Link>
+                                    </button>
                                 </div>
-                            )}
-                        </>
-                    ) : (
-                        <>
-                            <div className="box-Action">
-                                <button
-                                    className="btn btn-success ms-5 me-2"
-                                    style={{
-                                        backgroundColor: "#ff3cac",
-                                        backgroundImage:
-                                            "linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%)",
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    <Link
-                                        to="/register"
-                                        style={{ color: "white" }}
-                                        className="nav-link"
-                                    >
-                                        Register
-                                    </Link>
-                                </button>
-                                <button
-                                    className="btn btn-primary"
-                                    style={{
-                                        minWidth: "100px",
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    <Link
-                                        to="/login"
-                                        style={{ color: "white" }}
-                                        className="nav-link"
-                                    >
-                                        login
-                                    </Link>
-                                </button>
-                            </div>
-                        </>
-                    )}
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </>

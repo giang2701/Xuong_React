@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Home({ data }) {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedPriceRange, setSelectedPriceRange] = useState("");
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handlePriceRangeChange = (e) => {
+        setSelectedPriceRange(e.target.value);
+    };
+
+    const getPriceRange = (range) => {
+        switch (range) {
+            case "0-200":
+                return { min: 0, max: 200 };
+            case "200-500":
+                return { min: 200, max: 500 };
+            case "500-1000":
+                return { min: 500, max: 1000 };
+            default:
+                return { min: 0, max: Infinity };
+        }
+    };
+
+    const { min, max } = getPriceRange(selectedPriceRange);
+
+    const filteredData = data.filter((p) => {
+        const matchesSearchTerm = p.title
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase());
+        const matchesPriceRange = p.price >= min && p.price <= max;
+        return matchesSearchTerm && matchesPriceRange;
+    });
     return (
         <>
             <div className="hero">
@@ -24,22 +57,35 @@ function Home({ data }) {
                     </div>
                 </div>
             </div>
-            {/* <h1>Danh sach san pham</h1>
-            <div className="row">
-                {data.map((item) => (
-                    <div
-                        className="col-12 col-sm-6 col-md-4 col-lg-3"
-                        key={item.id}
-                    >
-                        <ProductItem data={item} />
-                    </div>
-                ))}
-            </div> */}
             <div className="container-sm ListPro">
+                <div className="filterPro">
+                    <div className="search-bar w-50 mx-auto">
+                        <input
+                            type="text"
+                            placeholder="Tìm Kiếm Sản Phẩm....."
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="price-filter w-50 mx-auto ">
+                        <select
+                            value={selectedPriceRange}
+                            onChange={handlePriceRangeChange}
+                            className="form-select"
+                        >
+                            <option value="">Tất Cả</option>
+                            <option value="0-200">0-200.000$</option>
+                            <option value="200-500">200.000-500.000$</option>
+                            <option value="500-1000">500.000-1.000.000$</option>
+                        </select>
+                    </div>
+                    <i class="fa-solid fa-filter"></i>
+                </div>
                 <h1 className="my-4 text-center">Danh Sách Sản Phẩm</h1>
                 <div className="row mt-5">
                     {/* @for(item of listProject; track item.id){ */}
-                    {data.map((item) => (
+                    {filteredData.map((item) => (
                         <div
                             className="col-md-3 mb-5 borderBox p-4 "
                             key={item.id}
